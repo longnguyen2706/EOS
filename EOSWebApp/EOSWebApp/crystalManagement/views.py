@@ -91,6 +91,9 @@ def gen_crystal_processing_result(request):
     hist_objs, ref_section, idea_section = HistProcessing.generate_result(mask_id, pair_thresh, overall_thresh, trunc_min,
                                                                            trunc_max, comp_a, comp_b)
 
+
+
+
     return render_to_response('crystalManagement/crystal_processing.html',
                               {'ori_img_data': ori_img_data, 'crys_img_data': crys_img_data, 'mask_id': int(mask_id),
                                'hist_objs': hist_objs, 'ref_section': ref_section, 'idea_section': idea_section})
