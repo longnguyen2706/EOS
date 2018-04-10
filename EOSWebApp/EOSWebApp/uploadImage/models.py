@@ -14,7 +14,7 @@ class UploadedImage(models.Model):
     description = models.CharField(max_length=255, blank=True)
     filename = models.CharField(max_length=255, blank=True)
     uploaded_at = models.DateTimeField(default=timezone.now)
-    dist_per_pixel = models.FloatField(null=True)
+    dist_per_pixel = models.FloatField(null=True, default=0)
 
     # thumbnail_url = models.CharField(max_length=255, blank=True)
 

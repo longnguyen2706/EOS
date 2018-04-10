@@ -22,20 +22,21 @@
 
                                 <h4><strong>File name: </strong>{{ image.filename }}</h4>
                                 <h5><strong>Date uploaded: </strong> {{ image.uploaded_at }}</h5>
-                                {%  if image.dist_per_pixel %}
-                                 <h5><strong>Real distance (per pixel): </strong> {{image.dist_per_pixel }} (<span>&#181;</span>m)</h5>
+                                {% if image.dist_per_pixel %}
+                                    <h5><strong>Real distance (per pixel): </strong> {{ image.dist_per_pixel }} (<span>&#181;</span>m)
+                                    </h5>
 
                                 {% else %}
-                                     <h5 class="text-danger"><strong>Image scale has not been set! </strong></h5>
-                                     <form action="{% url 'uploadImage:update-image-scale-page' image.id %}"
-                                                          method="get" style="display: inline;">
-                                                        {% csrf_token %}
-                                                        <button type="submit" class="btn btn-danger btn-xs">
-                                                            <span class="glyphicon glyphicon-arrow-right"></span>&nbsp;
-                                                            Set image scale
-                                                        </button>
-                                                    </form>
-                                {% endif  %}
+                                    <h5 class="text-danger"><strong>Image scale has not been set! </strong></h5>
+                                    <form action="{% url 'uploadImage:update-image-scale-page' image.id %}"
+                                          method="get" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-arrow-right"></span>&nbsp;
+                                            Set image scale
+                                        </button>
+                                    </form>
+                                {% endif %}
 
                             </div>
                         </div>
@@ -99,15 +100,16 @@
                                                         </button>
                                                     </form>
                                                 </td>
-  <td>
+                                                <td>
 
-                                                    <form action="{% url 'crystalManagement:crystal-detail-page' mask.id %}" class="form_process_crystal"
+                                                    <form action="{% url 'crystalManagement:crystal-detail-page' mask.id %}"
+                                                          class="form_process_crystal"
                                                           method="get" style="display: inline;">
                                                         {% csrf_token %}
                                                         <button type="submit"
                                                                 class="btn_process_crystal btn btn-success btn-xs"
                                                                 value={{ mask.id }}>
-{#                                                            <input type="hidden" name="mask_id" value="{{ mask.id }}"/>#}
+                                                            {#                                                            <input type="hidden" name="mask_id" value="{{ mask.id }}"/>#}
 
                                                             <span class="glyphicon glyphicon-download"></span>&nbsp;
                                                             Show crystal details
@@ -120,13 +122,12 @@
                                                     <button type="button"
                                                             class="btn_modal_show_histogram btn btn-primary btn-xs"
                                                             data-toggle="modal" data-target="#showHistogram"
-                                                            value={{ mask.id }} id ="btn_histogram" >
-                                                        <span class="glyphicon glyphicon-eye-open"></span>&nbsp; Show
-                                                        histogram
+                                                            value={{ mask.id }} id
+                                                    ="btn_histogram" >
+                                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp; Show
+                                                    histogram
                                                     </button>
                                                 </td>
-
-
 
 
                                                 <td>
@@ -148,78 +149,14 @@
 
                                         </tbody>
                                     </table>
-                                    <div id="showCrystal" class="modal fade" role="dialog">
-                                        <div class="modal-dialog modal-lg">
-
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;
-                                                    </button>
-                                                    <h4 class="modal-title" id="modal-crystal-name"></h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <img id="modal-crystal-img" class="centered"
-                                                                 width="100%"
-                                                                 src="">
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">
-                                                        Close
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
 
                                 {% else %}
                                     <h4 class="text-center">No data found</h4>
-
                                 {% endif %}
-                                <!-- Modal -->
-                                {#                                    Histogram #}
-    <div id="showHistogram" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;
-                    </button>
-                    <h4 class="modal-title" id="modal-crystal-name"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="histogram"></div>
-
-                            {#                                <div id="truncated-histogram"></div>#}
-                            {#                                <div id="composition-histogram"></div>#}
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">
-                        Close
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+                                {#                            include modals #}
+                                {% include "components/modal_show_crystal.html" %}
+                                {% include "components/modal_show_histogram.html" %}
 
                             </div>
                         </div>
@@ -235,7 +172,7 @@
 
 {% block javascript %}
     {% load staticfiles %}
-     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{% static 'js/library_page.js' %}"></script>
     <script src="{% static 'js/crystal_processing.js' %}"></script>
 

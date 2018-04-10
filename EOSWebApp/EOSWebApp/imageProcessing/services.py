@@ -4,8 +4,7 @@ from EOSWebApp.crystalManagement.models import Crystal
 from EOSWebApp.imageProcessing.models import TempImage, UploadedImage, CrystalMask
 from EOSWebApp.imageProcessing.processingFunc.crystal_extractor import ProcessingFunction
 from EOSWebApp.imageProcessing.utils import get_state_data, update_state_data, get_thumbnail_plus_img_json
-from EOSWebApp.utils import shared_data, get_func_name, compress_image, cv_to_json, absolute_file_dir, CRYSTAL_MASK_URL, \
-    json_to_cv
+from EOSWebApp.utils import shared_data, get_func_name, compress_image, cv_to_json, json_to_cv
 import numpy as np
 
 ps_func = ProcessingFunction()

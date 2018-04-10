@@ -23,24 +23,3 @@ $(".btn_modal_show_crystal").click(function (e) {
     });
 });
 
-// $(".btn_download_crystal").click(function(e){
-//        e.preventDefault();
-//       mask_id = $(this).val();
-//     $.ajax({
-//         type: "GET",
-//         url: '/download-crystal/'+ mask_id.toString() + "/",
-//          beforeSend: function () {
-//             document.body.style.cursor = "wait";
-//         },
-//            complete: function () {
-//             document.body.style.cursor = "default";
-//         },
-//         success: function (data) {
-//             alert("Downloaded");
-//         },
-//         error: function (data) {
-//             console.log(data);
-//             alert('error');
-//         }
-//     });
-// });

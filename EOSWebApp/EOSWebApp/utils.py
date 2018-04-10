@@ -2,15 +2,8 @@ import base64
 import inspect
 import os
 import time
-
 import numpy as np
 
-from EOSWebApp.settings import PROJECT_ROOT
-
-IMAGE_URL = '/media/images/'
-THUMBNAIL_URL = '/media/thumbnails/'
-CRYSTAL_MASK_URL = '/media/masks/'
-CRYSTAL_URL = '/media/crystals/'
 TEMP_ZIP_FILE = '/media/EOSImage.zip'
 PERFORMANCE_TEST = True
 
@@ -53,13 +46,7 @@ def cv_to_bytesIO(cv_image, format = "JPEG"):
 
 @timing
 def cv_to_json(image, is_state_img=True):
-    # img_file = open("/home/long/PycharmProjects/EOS/ImageProcessing/data/1947-1_plg6.small.png", "rb")
-    # img = img_file.read()
-    # opencv_img = cv2.imread('/home/long/PycharmProjects/EOS/ImageProcessing/data/1947-1_plg6.tif')
-    # if is_state_img:
-    #     opencv_img = image.img_data
-    # else:
-    #     opencv_img = image
+
     opencv_img = image
     retval, img = cv2.imencode('.jpg', opencv_img)
     base64_bytes = base64.b64encode(img)
@@ -102,10 +89,6 @@ def thumbnail_plus_img_json(image_obj, thumbnail_objs):
                  'gray_levels': image_obj.gray_levels,
                  'thumbnail_arr': thumbnail_arr}
     return json_data
-
-
-def absolute_file_dir(filename, target_url):
-    return str(PROJECT_ROOT) + target_url + filename
 
 
 def compress_image(image, mod_size=0):

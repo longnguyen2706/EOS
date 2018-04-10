@@ -11,8 +11,8 @@ class Crystal(models.Model):
     mask = models.ForeignKey(CrystalMask, default=1, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     crystal =  models.ImageField(upload_to="crystals/", null=True)
-    pixel_area = models.IntegerField(null=True)
-    real_area = models.IntegerField(null=True)
+    pixel_area = models.IntegerField(null=True, default=0)
+    real_area = models.IntegerField(null=True, default=0)
 
     def save(self, mask = None, name=None, crystal_data = None, pixel_area = None, real_area = None):
         if crystal_data is not None:

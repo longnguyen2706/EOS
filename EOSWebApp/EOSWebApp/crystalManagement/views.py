@@ -9,9 +9,9 @@ from EOSWebApp.crystalManagement.models import Crystal
 from EOSWebApp.crystalManagement.utils import get_image_mask, HistProcessing
 from EOSWebApp.imageProcessing.processingFunc.crystal_extractor import ProcessingFunction
 from EOSWebApp.imageProcessing.models import UploadedImage, CrystalMask
-from EOSWebApp.settings import BASE_DIR, PROJECT_ROOT
+from EOSWebApp.settings import PROJECT_ROOT
 
-from EOSWebApp.utils import IMAGE_URL, TEMP_ZIP_FILE, timing, cv_to_json, absolute_file_dir
+from EOSWebApp.utils import TEMP_ZIP_FILE, timing, cv_to_json
 
 ps_func = ProcessingFunction()
 hist_objs = [] #TODO: multiple users problem

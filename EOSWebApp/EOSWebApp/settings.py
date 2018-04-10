@@ -15,7 +15,7 @@ import os
 # from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# from EOSWebApp.imageProcessing.utils.js import TempData
+# from EOSWebApp.imageProcessing.processing_page_utils.js import TempData
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
@@ -29,23 +29,16 @@ SECRET_KEY = '!(fia^9g*f97$b^cmvzuli1!h57==(-b@$&6j1k^fdn04&(o-6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['155.69.160.73', 'localhost', '10.27.66.6', '127.0.0.1', '10.27.87.176']
+ALLOWED_HOSTS = ['localhost', '10.27.87.176', '127.0.0.1']
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 USE_TZ = True
 # TIME_ZONE = 'SG'
 
 # TODO: fix this
-# SHARED_DATA = SharedData()
-# temp = TempData()
-# Application definition
-
-# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-# SESSION_COOKIE_AGE = 10 # set just 10 seconds to test
-# SESSION_IDLE_TIMEOUT = 10
-# SESSION_SAVE_EVERY_REQUEST = True
 SESSION_SECURITY_WARN_AFTER = 1800
 SESSION_SECURITY_EXPIRE_AFTER = 1860
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

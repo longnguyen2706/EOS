@@ -142,35 +142,7 @@
                                 <input type="hidden" name="mask_id" value="{{ mask_id }}"/>
 
                             </form>
-                            {##}
-                            {##}
-                            {#                             <form action="{% url 'crystalManagement:gen-crystal-processing-result' %}"#}
-                            {#                                                          method="post" style="display: inline;">#}
-                            {#                                                        {% csrf_token %}#}
-                            {#                                                        <button type="submit"#}
-                            {#                                                                class="btn_download_crystal btn btn-success btn-xs"#}
-                            {#                                                                value={{ mask.id }}>#}
-                            {#                                                            <input type="hidden" name="mask_id" value="{{ mask.id }}"/>#}
-                            {#                                                              <input type="hidden" name="trunc_min" value=""/>#}
-                            {#                                                              <input type="hidden" name="trunc_max" value=""/>#}
-                            {#                                                              <input type="hidden" name="mask_id" value=""/>#}
-                            {#                                                              <input type="hidden" name="mask_id" value=""/>#}
-                            {#                                                              <input type="hidden" name="mask_id" value=""/>#}
-                            {#                                                              <input type="hidden" name="mask_id" value=""/>#}
-                            {##}
-                            {#                                                            <span class="glyphicon glyphicon-download"></span>&nbsp;#}
-                            {#                                                            Generate result#}
-                            {#                                                        </button>#}
-                            {#                                                    </form>#}
 
-
-                            {#                        <button type="button"#}
-                            {#                                class="btn_modal_show_histogram btn btn-primary btn-xs"#}
-                            {#                                data-toggle="modal" data-target="#showHistogram"#}
-                            {#                                value={{ mask.id }}>#}
-                            {#                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp; Show#}
-                            {#                            histogram#}
-                            {#                        </button>#}
                         </div>
                         <div class="panel-footer"></div>
                     </div>
@@ -183,74 +155,59 @@
                     </div>
                     <div id="ref-sec" class="panel-collapse collapse">
                         <div class="panel-body">
-                              <div class="table-responsive">
+                            <div class="table-responsive">
                                 <table class="table text-center " style="overflow: auto; ">
                                     <tr>
                                         <th>
-                                             <h3 class="text-center">Reference section</h3>
+                                            <h3 class="text-center">Reference section</h3>
                                         </th>
                                         <th>
-                                              <h3 class="text-center">Ideal section</h3>
+                                            <h3 class="text-center">Ideal section</h3>
                                         </th>
                                     </tr>
-                        <tr>
-                            <td>
-                                 <div class="row">
-                                <div class="col-lg-offset-3 col-lg-6">
-                                  <img id="image" class="img-fluid centered"
-                                         src="{{ ref_section.crystal.crystal.url }}">
-                                </div>
-                                 </div>
-                            </td>
-                            <td>
-                                <div class = "row">
-                                    <div class="col-lg-offset-3 col-lg-6">
-                                         <img id="image" class="img-fluid centered"
-                                         src="{{ idea_section.crystal.crystal.url }}">
-                                    </div>
-                                </div>
-
-                            </td>
-                        </tr>
                                     <tr>
-                                        <td> <h4>Name: {{ ref_section.crystal.name }}</h4></td>
-                                   <td>
-                                         <h4>Name: {{ idea_section.crystal.name }}</h4>
-                                   </td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-lg-offset-3 col-lg-6">
+                                                    <img id="image" class="img-fluid centered"
+                                                         src="{{ ref_section.crystal.crystal.url }}">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-lg-offset-3 col-lg-6">
+                                                    <img id="image" class="img-fluid centered"
+                                                         src="{{ idea_section.crystal.crystal.url }}">
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Name: {{ ref_section.crystal.name }}</h4></td>
+                                        <td>
+                                            <h4>Name: {{ idea_section.crystal.name }}</h4>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td>
-                                              <h4> Overall similarity: {{ ref_section.overall_sim.similarity_percentage }} </h4>
+                                            <h4> Overall
+                                                similarity: {{ ref_section.overall_sim.similarity_percentage }} </h4>
                                         </td>
                                         <td>
-                                              <h4>Overall similarity: {{ idea_section.overall_sim.similarity_percentage }}</h4>
+                                            <h4>Overall
+                                                similarity: {{ idea_section.overall_sim.similarity_percentage }}</h4>
                                         </td>
                                     </tr>
-{#                                    <div class="row">#}
-{#                                <div class="col-lg-offset-2 col-lg-3">#}
-{#                                    <h3 class="text-center">Reference section</h3>#}
-{#                                    <img id="image" class="img-fluid centered"#}
-{#                                         src="{{ ref_section.crystal.crystal.url }}">#}
-{##}
-{#                                    <h4>Name: {{ ref_section.crystal.name }}</h4>#}
-{#                                    <h4> Overall similarity: {{ ref_section.overall_sim.similarity_percentage }} </h4>#}
-{#                                </div>#}
-{##}
-{#                                <div class="col-lg-offset-2 col-lg-3">#}
-{#                                    <h3 class="text-center">Ideal section</h3>#}
-{#                                    <img id="image" class="img-fluid centered"#}
-{#                                         src="{{ idea_section.crystal.crystal.url }}">#}
-{#                                    <h4>Name: {{ idea_section.crystal.name }}</h4>#}
-{#                                        <h4>Overall similarity: {{ idea_section.overall_sim.similarity_percentage }}</h4>#}
-{#                                </div>#}
-{#                            </div>#}
+
                                 </table>
-                              </div>
+                            </div>
                         </div>
 
-                    <div class="panel-footer"></div>
-                </div>
+                        <div class="panel-footer"></div>
+                    </div>
                 </div>
             </div>
 
@@ -326,112 +283,20 @@
                 </div>
             </div>
 
+            {#        include modal for displaying#}
 
-            <div id="showCrystal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;
-                            </button>
-                            <h4 class="modal-title" id="modal-crystal-name"></h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <img id="modal-crystal-img" class="centered"
-                                         width="100%"
-                                         src="">
-                                </div>
-                            </div>
+            {% include "components/modal_show_crystal.html" %}
 
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">
-                                Close
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div id="showConfGraph" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;
-                        </button>
-                        <h4 class="modal-title" id="modal-crystal-name"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div id="confusion-graph"></div>
-                            </div>
-                        </div>
+            {% include "components/modal_show_conf_graph.html" %}
 
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default"
-                                data-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    </div>
-
-
-    {#                                    Histogram #}
-    <div id="showHistogram" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;
-                    </button>
-                    <h4 class="modal-title" id="modal-crystal-name"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="histogram"></div>
-
-                            {#                                <div id="truncated-histogram"></div>#}
-                            {#                                <div id="composition-histogram"></div>#}
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">
-                        Close
-                    </button>
-                </div>
-            </div>
+            {% include "components/modal_show_histogram.html" %}
 
         </div>
     </div>
 
-    </div>
-    </div>
+
 {% endblock %}
 
 {% block javascript %}
